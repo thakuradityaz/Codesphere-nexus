@@ -17,7 +17,7 @@
             background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
             color: #333;
             min-height: 100vh;
-            padding: 20px;
+            padding: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -35,58 +35,64 @@
         header {
             background: linear-gradient(135deg, #1a2a6c, #0d1b4d);
             color: white;
-            padding: 30px;
+            padding: 25px 20px;
             text-align: center;
             position: relative;
         }
         
         .logo {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             background: white;
             border-radius: 50%;
-            margin: 0 auto 20px;
+            margin: 0 auto 15px;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #1a2a6c;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: bold;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
         }
         
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         
         .tagline {
-            font-size: 1.2rem;
+            font-size: 1rem;
             opacity: 0.9;
         }
         
         .main-content {
-            padding: 30px;
+            padding: 20px;
         }
         
         .section-title {
             color: #1a2a6c;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
             border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .timetable {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-radius: 10px;
-            overflow: hidden;
+            min-width: 600px;
         }
         
         .timetable thead {
@@ -95,14 +101,16 @@
         }
         
         .timetable th {
-            padding: 15px;
+            padding: 12px 10px;
             text-align: left;
             font-weight: 600;
+            font-size: 0.9rem;
         }
         
         .timetable td {
-            padding: 15px;
+            padding: 12px 10px;
             border-bottom: 1px solid #e0e0e0;
+            font-size: 0.9rem;
         }
         
         .timetable tr:nth-child(even) {
@@ -116,11 +124,13 @@
         .date-cell {
             font-weight: 600;
             color: #1a2a6c;
+            white-space: nowrap;
         }
         
         .time-cell {
             color: #b21f1f;
             font-weight: 600;
+            white-space: nowrap;
         }
         
         .topic-cell {
@@ -131,14 +141,18 @@
             background: #1a2a6c;
             color: white;
             border: none;
-            padding: 8px 15px;
+            padding: 10px 15px;
             border-radius: 5px;
             cursor: pointer;
             font-weight: 500;
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            width: 100%;
+            min-width: 140px;
         }
         
         .reminder-btn:hover {
@@ -149,7 +163,7 @@
         
         .assignment-section {
             background: #f8f9fa;
-            padding: 20px;
+            padding: 18px;
             border-radius: 10px;
             margin-top: 20px;
             border-left: 5px solid #fdbb2d;
@@ -157,13 +171,14 @@
         
         .assignment-title {
             color: #1a2a6c;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
         }
         
         .assignment-desc {
             line-height: 1.6;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
         }
         
         .deadline {
@@ -173,11 +188,12 @@
             padding: 5px 10px;
             border-radius: 5px;
             font-weight: 600;
+            font-size: 0.9rem;
         }
         
         .notes {
-            margin-top: 30px;
-            padding: 20px;
+            margin-top: 25px;
+            padding: 18px;
             background: #e9f7fe;
             border-radius: 10px;
             border-left: 5px solid #1a2a6c;
@@ -185,7 +201,7 @@
         
         .notes-title {
             color: #1a2a6c;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 10px;
         }
         
@@ -196,28 +212,124 @@
         .notes-list li {
             margin-bottom: 8px;
             line-height: 1.5;
+            font-size: 0.95rem;
         }
         
         footer {
             background: #1a2a6c;
             color: white;
             text-align: center;
-            padding: 20px;
-            margin-top: 30px;
+            padding: 18px;
+            margin-top: 25px;
         }
         
+        footer p {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile-specific styles */
         @media (max-width: 768px) {
-            .timetable {
+            body {
+                padding: 10px;
                 display: block;
-                overflow-x: auto;
+            }
+            
+            .container {
+                border-radius: 10px;
+            }
+            
+            header {
+                padding: 20px 15px;
+            }
+            
+            .logo {
+                width: 60px;
+                height: 60px;
+                font-size: 9px;
+                margin-bottom: 12px;
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 1.5rem;
+            }
+            
+            .tagline {
+                font-size: 0.9rem;
             }
             
             .main-content {
-                padding: 20px;
+                padding: 15px;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            .table-container {
+                margin-bottom: 20px;
+            }
+            
+            .timetable th, 
+            .timetable td {
+                padding: 10px 8px;
+                font-size: 0.85rem;
+            }
+            
+            .reminder-btn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+                min-width: 120px;
+            }
+            
+            .assignment-section,
+            .notes {
+                padding: 15px;
+            }
+            
+            .assignment-title {
+                font-size: 1.2rem;
+            }
+            
+            .notes-title {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                width: 50px;
+                height: 50px;
+                font-size: 8px;
+            }
+            
+            h1 {
+                font-size: 1.3rem;
+            }
+            
+            .tagline {
+                font-size: 0.85rem;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
+            }
+            
+            .timetable th, 
+            .timetable td {
+                padding: 8px 6px;
+                font-size: 0.8rem;
+            }
+            
+            .reminder-btn {
+                padding: 8px 10px;
+                font-size: 0.75rem;
+                min-width: 110px;
+            }
+            
+            .assignment-desc,
+            .notes-list li {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -225,7 +337,7 @@
 <body>
     <div class="container">
         <header>
-            <div class=></div>
+            <div class="logo">CODESPHERE<br>NEXUS</div>
             <h1>CodeSphere Nexus</h1>
             <p class="tagline">Web Development Club - Class Timetable</p>
         </header>
@@ -233,75 +345,75 @@
         <div class="main-content">
             <h2 class="section-title">Upcoming Classes</h2>
             
-            <table class="timetable">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Topic</th>
-                        <th>Set Reminder</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="date-cell">01/12/2025</td>
-                        <td class="time-cell">7:00 PM</td>
-                        <td class="topic-cell">Introduction to CSS Boxes and Revision of older things</td>
-                        <td>
-                            <button class="reminder-btn" onclick="addToCalendar('Introduction to CSS Boxes', '2025-12-01T19:00:00', '2025-12-01T20:30:00', 'CSS Box Model and Revision class')">
-                                <i class="far fa-calendar-plus"></i> Add to Calendar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="date-cell">03/12/2025</td>
-                        <td class="time-cell">7:00 PM</td>
-                        <td class="topic-cell">CSS Navbar and older revision</td>
-                        <td>
-                            <button class="reminder-btn" onclick="addToCalendar('CSS Navbar', '2025-12-03T19:00:00', '2025-12-03T20:30:00', 'CSS Navigation Bar class with revision')">
-                                <i class="far fa-calendar-plus"></i> Add to Calendar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="date-cell">05/12/2025</td>
-                        <td class="time-cell">7:00 PM</td>
-                        <td class="topic-cell">CSS Images & BACKGROUND</td>
-                        <td>
-                            <button class="reminder-btn" onclick="addToCalendar('CSS Images & Background', '2025-12-05T19:00:00', '2025-12-05T20:30:00', 'Working with images and backgrounds in CSS')">
-                                <i class="far fa-calendar-plus"></i> Add to Calendar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="date-cell">07/12/2025</td>
-                        <td class="time-cell">10:00 AM</td>
-                        <td class="topic-cell">CSS Animations</td>
-                        <td>
-                            <button class="reminder-btn" onclick="addToCalendar('CSS Animations', '2025-12-07T10:00:00', '2025-12-07T11:30:00', 'CSS Animations and transitions class')">
-                                <i class="far fa-calendar-plus"></i> Add to Calendar
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="date-cell">07/12/2025</td>
-                        <td class="time-cell">7:00 PM</td>
-                        <td class="topic-cell">Online Test - HTML Only</td>
-                        <td>
-                            <button class="reminder-btn" onclick="addToCalendar('HTML Online Test', '2025-12-07T19:00:00', '2025-12-07T20:30:00', 'Online test on HTML topics')">
-                                <i class="far fa-calendar-plus"></i> Add to Calendar
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table class="timetable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Topic</th>
+                            <th>Set Reminder</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="date-cell">01/12/2025</td>
+                            <td class="time-cell">7:00 PM</td>
+                            <td class="topic-cell">Introduction to CSS Boxes and Revision of older things</td>
+                            <td>
+                                <button class="reminder-btn" onclick="addToCalendar('Introduction to CSS Boxes', '2025-12-01T19:00:00', '2025-12-01T20:30:00', 'CSS Box Model and Revision class')">
+                                    <i class="far fa-calendar-plus"></i> Add to Calendar
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date-cell">03/12/2025</td>
+                            <td class="time-cell">7:00 PM</td>
+                            <td class="topic-cell">CSS Navbar and older revision</td>
+                            <td>
+                                <button class="reminder-btn" onclick="addToCalendar('CSS Navbar', '2025-12-03T19:00:00', '2025-12-03T20:30:00', 'CSS Navigation Bar class with revision')">
+                                    <i class="far fa-calendar-plus"></i> Add to Calendar
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date-cell">05/12/2025</td>
+                            <td class="time-cell">7:00 PM</td>
+                            <td class="topic-cell">CSS Images & BACKGROUND</td>
+                            <td>
+                                <button class="reminder-btn" onclick="addToCalendar('CSS Images & Background', '2025-12-05T19:00:00', '2025-12-05T20:30:00', 'Working with images and backgrounds in CSS')">
+                                    <i class="far fa-calendar-plus"></i> Add to Calendar
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date-cell">07/12/2025</td>
+                            <td class="time-cell">10:00 AM</td>
+                            <td class="topic-cell">CSS Animations</td>
+                            <td>
+                                <button class="reminder-btn" onclick="addToCalendar('CSS Animations', '2025-12-07T10:00:00', '2025-12-07T11:30:00', 'CSS Animations and transitions class')">
+                                    <i class="far fa-calendar-plus"></i> Add to Calendar
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="date-cell">07/12/2025</td>
+                            <td class="time-cell">7:00 PM</td>
+                            <td class="topic-cell">Online Test - HTML Only</td>
+                            <td>
+                                <button class="reminder-btn" onclick="addToCalendar('HTML Online Test', '2025-12-07T19:00:00', '2025-12-07T20:30:00', 'Online test on HTML topics')">
+                                    <i class="far fa-calendar-plus"></i> Add to Calendar
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             
             <div class="assignment-section">
                 <h3 class="assignment-title">Assignment Details</h3>
                 <p class="assignment-desc">
                     Daily assignments will be given after each class. These assignments are designed to reinforce the concepts taught in class and help you build practical skills.
-
-
                 </p>
                 <p>
                     <strong>Last Date for Submission:</strong> <span class="deadline">07/12/2025</span>
