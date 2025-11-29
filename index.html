@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeSphere Nexus - Class Timetable</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #0d1b4d);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1a2a6c;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            padding: 30px;
+        }
+        
+        .section-title {
+            color: #1a2a6c;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #fdbb2d;
+        }
+        
+        .timetable {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .timetable thead {
+            background: #1a2a6c;
+            color: white;
+        }
+        
+        .timetable th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .timetable td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .timetable tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .timetable tr:hover {
+            background-color: #e9ecef;
+        }
+        
+        .date-cell {
+            font-weight: 600;
+            color: #1a2a6c;
+        }
+        
+        .time-cell {
+            color: #b21f1f;
+            font-weight: 600;
+        }
+        
+        .topic-cell {
+            font-weight: 500;
+        }
+        
+        .reminder-btn {
+            background: #1a2a6c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .reminder-btn:hover {
+            background: #0d1b4d;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .assignment-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 5px solid #fdbb2d;
+        }
+        
+        .assignment-title {
+            color: #1a2a6c;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .assignment-desc {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .deadline {
+            display: inline-block;
+            background: #b21f1f;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+        
+        .notes {
+            margin-top: 30px;
+            padding: 20px;
+            background: #e9f7fe;
+            border-radius: 10px;
+            border-left: 5px solid #1a2a6c;
+        }
+        
+        .notes-title {
+            color: #1a2a6c;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .notes-list {
+            padding-left: 20px;
+        }
+        
+        .notes-list li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        footer {
+            background: #1a2a6c;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .timetable {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class=></div>
+            <h1>CodeSphere Nexus</h1>
+            <p class="tagline">Web Development Club - Class Timetable</p>
+        </header>
+        
+        <div class="main-content">
+            <h2 class="section-title">Upcoming Classes</h2>
+            
+            <table class="timetable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Topic</th>
+                        <th>Set Reminder</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="date-cell">01/12/2025</td>
+                        <td class="time-cell">7:00 PM</td>
+                        <td class="topic-cell">Introduction to CSS Boxes and Revision of older things</td>
+                        <td>
+                            <button class="reminder-btn" onclick="addToCalendar('Introduction to CSS Boxes', '2025-12-01T19:00:00', '2025-12-01T20:30:00', 'CSS Box Model and Revision class')">
+                                <i class="far fa-calendar-plus"></i> Add to Calendar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="date-cell">03/12/2025</td>
+                        <td class="time-cell">7:00 PM</td>
+                        <td class="topic-cell">CSS Navbar and older revision</td>
+                        <td>
+                            <button class="reminder-btn" onclick="addToCalendar('CSS Navbar', '2025-12-03T19:00:00', '2025-12-03T20:30:00', 'CSS Navigation Bar class with revision')">
+                                <i class="far fa-calendar-plus"></i> Add to Calendar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="date-cell">05/12/2025</td>
+                        <td class="time-cell">7:00 PM</td>
+                        <td class="topic-cell">CSS Images & BACKGROUND</td>
+                        <td>
+                            <button class="reminder-btn" onclick="addToCalendar('CSS Images & Background', '2025-12-05T19:00:00', '2025-12-05T20:30:00', 'Working with images and backgrounds in CSS')">
+                                <i class="far fa-calendar-plus"></i> Add to Calendar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="date-cell">07/12/2025</td>
+                        <td class="time-cell">10:00 AM</td>
+                        <td class="topic-cell">CSS Animations</td>
+                        <td>
+                            <button class="reminder-btn" onclick="addToCalendar('CSS Animations', '2025-12-07T10:00:00', '2025-12-07T11:30:00', 'CSS Animations and transitions class')">
+                                <i class="far fa-calendar-plus"></i> Add to Calendar
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="date-cell">07/12/2025</td>
+                        <td class="time-cell">7:00 PM</td>
+                        <td class="topic-cell">Online Test - HTML Only</td>
+                        <td>
+                            <button class="reminder-btn" onclick="addToCalendar('HTML Online Test', '2025-12-07T19:00:00', '2025-12-07T20:30:00', 'Online test on HTML topics')">
+                                <i class="far fa-calendar-plus"></i> Add to Calendar
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="assignment-section">
+                <h3 class="assignment-title">Assignment Details</h3>
+                <p class="assignment-desc">
+                    Daily assignments will be given after each class. These assignments are designed to reinforce the concepts taught in class and help you build practical skills.
+
+
+                </p>
+                <p>
+                    <strong>Last Date for Submission:</strong> <span class="deadline">07/12/2025</span>
+                </p>
+                <p>
+                    All assignments from the daily classes must be submitted by this date. Late submissions will not be accepted. and will be respoonsible for debarred from club . 
+                </p>
+            </div>
+            
+            <div class="notes">
+                <h3 class="notes-title">Important Notes</h3>
+                <ul class="notes-list">
+                    <li>All classes will be conducted ONLINE , will be offline once i came college again </li>
+                    <li>Class notes and assignment will be provided 1-2 hrs after the class</li>
+                    <li>Try to use laptop or phone coding app to practice during the sessions</li>
+                    <li>Join our WhatsApp group for updates and discussions</li>
+                    <li>For any queries, you can directly  msg us  </li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer>
+            <p>CodeSphere Nexus </p>
+            <p>Building the Next Generation of Web Developers</p>
+            <p>By Aditya Thakur & Deshdeep Dohare </p>
+        </footer>
+    </div>
+
+    <script>
+        function addToCalendar(title, startTime, endTime, description) {
+            // Format dates for Google Calendar
+            const start = new Date(startTime);
+            const end = new Date(endTime);
+            
+            // Format dates for Google Calendar URL (YYYYMMDDTHHMMSSZ)
+            const formatDate = (date) => {
+                return date.toISOString().replace(/-|:|\.\d+/g, '');
+            };
+            
+            const startFormatted = formatDate(start);
+            const endFormatted = formatDate(end);
+            
+            // Create Google Calendar URL
+            const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startFormatted}/${endFormatted}&details=${encodeURIComponent(description)}&location=CodeSphere Nexus, UIT RGPV Shivpuri`;
+            
+            // Open the URL in a new tab
+            window.open(googleCalendarUrl, '_blank');
+            
+            // Show confirmation message
+            alert(`Reminder for "${title}" has been added to your Google Calendar!`);
+        }
+    </script>
+</body>
+</html>
